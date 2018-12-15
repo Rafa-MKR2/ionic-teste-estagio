@@ -1,0 +1,46 @@
+<!--
+  Generated template for the CadastroPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="light">
+    <ion-title>Cadastro De Denúncias</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <h2  text-center>Cadastro de Denúncias</h2>
+
+
+<form [formGroup]="form"(ngSubmit)="enviar()" id="myForm">
+    <ion-item>
+    <ion-label>Lista de Motivos</ion-label>
+    <ion-select formControlName="motivo_ocorrencia"  name="motivo_ocorrencia" [(ngModel)]="motivo">
+      <ion-option value="FURTO">Furto</ion-option>
+      <ion-option value="ROUBO">Roubo</ion-option>
+    </ion-select>
+  </ion-item>
+
+<br>
+  <ion-item>
+    <ion-label color="primary">E-mail:</ion-label>
+    <ion-input name="email" formControlName="email" [(ngModel)]="email" disabled></ion-input>
+  </ion-item>
+  <br>
+          <ion-item  style="margin-left:20%;" no-lines>
+               <p>Click para tirar uma foto</p>
+               <a (click)="capturaFoto()"> <img height="150" width="150" src="{{fotobase64? fotobase64:'assets/imgs/placeholder.png'}}"></a>
+              
+           </ion-item>
+
+           <button  [disabled]="!form.valid" type="submit" ion-button block color="secondary">Salvar dados</button>
+          
+
+          </form>
+
+</ion-content>

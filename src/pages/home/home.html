@@ -1,14 +1,34 @@
 <ion-header>
-  <ion-navbar>
+  <ion-navbar color="light">
     <ion-title>
-      Ionic Blank
+      Home
     </ion-title>
   </ion-navbar>
+ 
 </ion-header>
 
 <ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+ 
+
+  <h2  text-center>Lista De Denúncias</h2>
+
+
+
+  <ion-list>
+      <button *ngFor="let denuncia of denuncias" ion-item color="balanced" >
+        <ion-avatar item-left>
+          <img [src]="denuncia.imagem==null? './assets/imgs/placeholder.png':denuncia.imagem.imagem"/>
+        </ion-avatar>
+        <h2>{{denuncia.email}}</h2>
+        <p>{{denuncia.motivo_ocorrencia}}</p>
+      </button >
+    </ion-list>
+  
+
+  <ion-fab bottom  right>
+    <button ion-fab color="dark" (click)="pageCadastro()">
+      <ion-icon name="create"></ion-icon>
+    </button>
+  </ion-fab>
+
 </ion-content>
